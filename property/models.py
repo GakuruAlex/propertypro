@@ -40,3 +40,4 @@ class WaterBill(Bill):
     pass
 class ElectricBill(Bill):
     pass
+
