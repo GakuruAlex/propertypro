@@ -23,10 +23,20 @@ class House(models.Model):
         "TWO BEDROOM":'two bedroom'
     }
     tenant = models.OneToOneField(Tenant)
-    rent = models.FloatField()
+    rent = models.DecimalField(max_digits=9, decimal_places=3)
     image = models.ImageField(upload_to='media/')
     house_number = models.CharField(max_length= 10)
     status = models.CharField(max_length=20,choices=VACANCY_CHOICES)
     electric_bill =models.ForeignKey('ElectricBill',on_delete=models.CASCADE)
     water_bill = models.ForeignKey('WaterBill',on_delete=models.CASCADE)
     category = models.CharField(max_length=20,choices=CATEGORY)
+
+class Bill(models.Model):
+    account_no = models.IntegerField()
+    bill_amount = models.DecimalField(max_digits=9, decimal_places=2)
+    bill_month = models.DateField()
+
+class WaterBill(Bill):
+    pass
+class ElectricBill(Bill):
+    pass
