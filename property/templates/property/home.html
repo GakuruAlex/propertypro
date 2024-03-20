@@ -1,0 +1,27 @@
+{% static 'property/home.css' %}
+{% include 'nav.html' %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            
+            {% block title %}
+                
+            {% endblock title %}
+                
+        </title>
+        <link rel="stylesheet" href="{% static 'property/home.css' %}">
+        {% block styles %}
+            
+        {% endblock styles %}
+            
+    </head>
+    <body>
+       
+       {% block body %}
+        
+       {% endblock body %}
+        
+    </body>
+</html>
