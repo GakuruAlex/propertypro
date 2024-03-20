@@ -11,18 +11,19 @@ class Property(models.Model):
     owner = models.ManyToManyField(Owner,related_name='properties')
 
 class House(models.Model):
-    VACANCY_CHOICES ={
-        "AVAILABLE":'Available',
-        "OCCUPIED":'Occupied'
-    }
-    CATEGORY = {
-        "SINGLE":'single',
-        "DOUBLE":'double-room',
-        "DOUBLE SELF":'double-self',
-        "ONE BEDROOM":'one bedroom',
-        "TWO BEDROOM":'two bedroom'
-    }
-    tenant = models.OneToOneField(Tenant)
+    VACANCY_CHOICES =[
+        ("AVAILABLE",'Available'),
+        ("OCCUPIED",'Occupied')
+    ]
+    CATEGORY =[
+        ("SINGLE","single"),
+        ("DOUBLE","double_room"),
+        ("DOUBLE SELF","double_self"),
+        ("ONE BEDROOM","one bedroom"),
+        ("TWO BEDROOM","two bedroom"),
+    ]
+
+    tenant = models.OneToOneField(Tenant,on_delete=models.CASCADE)
     rent = models.DecimalField(max_digits=9, decimal_places=3)
     image = models.ImageField(upload_to='media/')
     house_number = models.CharField(max_length= 10)
