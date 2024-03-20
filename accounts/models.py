@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.hashers import make_password,check_password
-from property.models import Property
 # Create your models here.
 class Person(models.Model):
     first_name = models.CharField(max_length = 10)
@@ -33,6 +32,7 @@ class Employee(User):
     def __str__(self):
         return super().__str__()
 
-class Owner(User,models.Model):
-    property = models.ManyToManyField(Property,related_name='owners')
+class Owner(User):
+    def __str__(self):
+        return super().__str__()
     
