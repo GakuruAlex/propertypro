@@ -1,0 +1,34 @@
+{% extends "property/index.html" %}
+{% load static %}
+
+{% block title %}
+    HOME
+{% endblock title %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'property/home.css' %}">
+{% endblock styles %}
+
+
+{% block body %}
+    {% if messages %}
+      {% for message in messages  %}
+      <div class="messages">
+        <h3>{{message}}</h3>
+      </div>
+        
+      {% endfor %}
+    {% endif %}
+    {% if properties %}
+    {% for property in properties  %}
+      <div class="properties">
+        <h3>{{property.name}}</h3>
+        <h3>{{property.no_units}}</h3>
+        <h3>{{property.owner}}</h3>
+      </div>
+    {% endfor %}
+      
+    {% endif %}
+{% endblock body %}
+    

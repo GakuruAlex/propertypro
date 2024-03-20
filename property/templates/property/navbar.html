@@ -1,0 +1,18 @@
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'property/navbar.css' %}">
+{% endblock styles %}
+
+
+{% block body %}
+<li class="navbar">
+    <div class="logo">
+        <img src="{% static 'property/Designer.jpeg' %}" alt="Logo" >
+         <h3 >PropertyPro</h3>
+    </div>
+    
+    <a href="#" class="home"><img class="svg-color"  src="{% static 'property/home.svg' %}" alt="home">  Home</a>
+    <a href="#" class="home"><img src="{% static 'property/property.svg' %}" alt="property"> Properties</a>
+    <a href="#" class="home">  <img src="{% static 'property/tenants.svg' %}" alt="tenants">   Tenants</a>
+</li>
+{% endblock body %}
