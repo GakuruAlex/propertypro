@@ -1,10 +1,16 @@
-# PROJECT FOR LANDLORDS TO MANAGE THEIR PROPERTIES #
+# PROJECT FOR LANDLORDS TO MANAGE THEIR PROPERTIES
 
-Git clone repo
-run :python -m venv localenv
-    :source localenv/bin/activate
-    :pip install -r requirements.txt
+This project aims to be a user-friendly platform for landlords to manage their properties.
 
-## HTTP VERBS ##
+## Key Features
 
-GET
+* Manage properties
+* Manage Tenants
+
+## Getting Started
+
+1. Git clone
+2. Navigate propertypro dir in terminal then run $ code .
+3. Run: $ Python -m venv envname - To create virtual env **Run in terminal**
+4. Run: $ pip install -r requirements.txt
+5. Run: $ python manage.py runserver

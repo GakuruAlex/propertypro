@@ -1,5 +1,5 @@
 .navbar{
-    background-color: var(--light-primary-color);
+    background-color: var(--primary-color);
     padding: 8px;
     border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -18,9 +18,9 @@ li{
 }
 a{
     text-decoration: none;
-    color: var(--primary-text);
-    text-decoration-color: var(--primary-text);
-    -moz-text-decoration-color: var(--primary-text);
+    color: var(--text-icon-color);
+    text-decoration-color: var(--text-icon-color);
+    -moz-text-decoration-color: var(--text-icon-color);
     padding: 10px;
     border-radius:4px ;
     -webkit-border-radius:4px ;
@@ -56,4 +56,45 @@ a:hover{
     height: 40px;
     padding-left: 15px;
     margin-left: 15px;
+}
+
+.search{
+    display: flex;
+    height: 40px;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+#search{
+   height: 40px;
+   width: 300px;
+   border-radius:10px ;
+   -webkit-border-radius:10px ;
+   -moz-border-radius:10px ;
+   -ms-border-radius:10px ;
+   -o-border-radius:10px ;
+}
+#submit{
+    height: 40px;
+    width: 80px;
+    color: var(--primary-text);
+    background-color: var(--accent-color);
+    font-family: cursive;
+    font-size: 15px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+input[type="text"]::placeholder{
+    font-family: cursive;
+    font-size: 17px;
+    color:var(--primary-text);
+    
+}
+#search:hover{
+    background-color: var(--text-icon-color);
+    color: var(--primary-color);
 }
