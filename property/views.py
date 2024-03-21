@@ -21,3 +21,13 @@ def home(request):
         return render (request,'property/home.html')
     
     return render(request,'property/home.html',{'properties':properties})
+
+def property_detail(request,pk):
+    """This view gets a particular object based on object id passed from the template
+
+    Args:
+        request GET: Fetch object
+        pk (int): The primary key from the template is the id of the object to fetch
+    """
+    property = get_object_or_404(Property,pk=pk)
+    return render(request,'property/property_detail.html',{"property":property})
