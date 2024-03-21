@@ -5,5 +5,6 @@ app_name = 'property'
 
 urlpatterns = [
    path('',views.home, name='home'),
-   path("property/<int:pk>/",views.property_detail,name="property_detail")
+   path('properties/',views.properties_list,name="properties"),
+   path("properties/<int:pk>/",views.property_detail,name="property_detail"),
 ]
