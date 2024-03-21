@@ -92,9 +92,6 @@ input[type="text"]::placeholder{
     font-family: cursive;
     font-size: 17px;
     color:var(--primary-text);
-    
+
 }
-#search:hover{
-    background-color: var(--text-icon-color);
-    color: var(--primary-color);
-}
+

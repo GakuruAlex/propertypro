@@ -1,0 +1,19 @@
+{% extends "property/index.html" %}
+{% load static %}
+
+
+{% block title %}
+   <h3>{{property.name}}</h3>
+{% endblock title %}
+    
+{% block styles %}
+<link rel="stylesheet" href="{% static 'property/property_detail.css' %}">
+{% endblock styles %}
+
+
+{% block body %}
+    <div class="property-details">
+        
+    </div>
+{% endblock body %}
+    

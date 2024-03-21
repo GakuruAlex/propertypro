@@ -1,0 +1,53 @@
+{% extends "property/index.html" %}
+{% load static %}
+
+{% block title %}
+    Properties
+{% endblock title %}
+
+{% block jquery %}
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+<script text="javascript">
+    setTimeout(fade_out, 3000);
+    function fade_out() {
+        $(".success").fadeOut().empty();
+    }
+</script>
+{% endblock jquery %}
+  
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'property/properties.css' %}">
+{% endblock styles %}
+
+
+{% block body %}
+
+   {% for message in messages %}
+  {% if message.tags == 'success' %}
+    <div class="success">
+      {{ message }}
+    </div>
+  {% elif message.tags == 'error' %}
+    <div class="error">
+      {{ message }}
+    </div>
+  {% endif %}
+{% endfor %}
+
+    {% if properties %}
+    {% for property in properties  %}
+      <div class="properties">
+        <h3>{{property.name}}</h3>
+        <h3>{{property.no_units}}</h3>
+        <h3>{{property.owner}}</h3>
+      </div>
+    {% endfor %}
+      
+    {% endif %}
+{% endblock body %}
+    
