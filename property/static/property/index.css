@@ -1,0 +1,18 @@
+:root{
+    --dark-primary-color:#512DA8;
+    --light-primary-color:#D1C4E9;
+    --primary-color:#673AB7;
+    --text-icon-color:#FFFFFF;
+    --accent-color:#FFC107;
+    --primary-text:#212121;
+    --secondary-text:#757575;
+    --separator-color:#BDBDBD;
+    --success-color:#4CAF50;
+    --error-color:#FF5252;
+    
+
+
+}
+body{
+    background-color: var(--dark-primary-color);
+}
