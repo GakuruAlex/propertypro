@@ -38,7 +38,10 @@
     </div>
   {% endif %}
 {% endfor %}
-
+<a href="{% url 'property:create_property' %}" class="add_property">
+   <img src="{% static 'property/add_home.svg'%}" alt="Add Property" id="add_property">
+   Add Property
+</a>
     {% if properties %}
     {% for property in properties  %}
       <div class="properties">
