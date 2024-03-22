@@ -1,0 +1,17 @@
+.error{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: var(--error-color);
+    width: 50%;
+    height: 10%;
+    padding-left: 20px;
+    margin-left:350px;
+    margin-top: 40px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
