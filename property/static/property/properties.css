@@ -14,3 +14,27 @@
     color: var(--primary-text);
     font-family:cursive ;
 }
+
+.add_property{
+    margin-top: 20px;
+    margin-right: 30px;
+    float: right;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 30px;
+    width: 160px;
+    background-color: var(--text-icon-color);
+    text-decoration: solid;
+    color: var(--primary-text);
+}
+#add_property{
+    margin-top: 2px;
+    padding: 2px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}

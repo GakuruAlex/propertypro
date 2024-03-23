@@ -5,7 +5,8 @@ from django.shortcuts import get_object_or_404
 from .models import Property,House,WaterBill,ElectricBill
 from django.contrib import messages
 from django.db.models import F,Sum
-
+from .forms import PropertyForm
+from django.db import IntegrityError,transaction
 # Create your views here.
 def home(request):
     return HttpResponse(f"Simplify Manage")
@@ -42,3 +43,24 @@ def property_detail(request,pk):
         messages.error(request,f"Property with id {pk} Not Found!")
         return render(request,'property/detail_not_found.html')
     return render(request,'property/property_detail.html',{"property":property})
+
+@transaction.atomic
+def create_property(request):
+    """Create a new property view
+
+    Args:
+        request POST: Create property
+
+    Returns:
+        render:initially property form else created property template
+    """
+   
+    if request.method == "POST":
+        form = PropertyForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,f"Created Property Successfully!")
+            return HttpResponseRedirect(reverse("property:properties"))
+    else:
+        form = PropertyForm()
+        return render(request,"property/create_property.html",{"form":form})

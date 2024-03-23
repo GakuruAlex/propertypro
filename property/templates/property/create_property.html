@@ -1,0 +1,49 @@
+{% extends "property/index.html" %}
+{% load static %}
+
+
+{% block title %}
+Create Property
+{% endblock title %}
+    
+{% block styles %}
+<link rel="stylesheet" href="{% static 'property/create_property.css' %}">
+{% endblock styles %}
+
+
+
+{% block body %}
+
+
+
+<h3 id="create_property"> Create New Property</h3>
+
+            <span class="text-danger">{{ form.errors }}</span>
+        
+<form action="{% url 'property:create_property' %}" method="post" class="create_property">
+  {% csrf_token %}
+
+    <div class="input">
+
+        <label for="{{form.name.id_for_label}}" class="label">  {{form.name.label}} </label>
+         {{form.name}}
+         
+     
+    </div>
+    <div class="input">
+        <label for="{{form.location.id_for_label}}" class="label">{{form.location.label}}</label>
+        {{form.location}}
+    </div>
+    <div class="input">
+        <label for="{{form.no_houses.id_for_label}}" class="label">{{form.no_houses.label}}</label>
+        {{form.no_houses}}
+     </div>
+ 
+  
+<input type="submit" value="Create Property">
+</form>
+
+
+{% endblock body %}
+
+    

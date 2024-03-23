@@ -7,8 +7,7 @@ class Property(models.Model):
     name = models.CharField(max_length=25)
     location = models.CharField(max_length=25)
     no_houses = models.IntegerField()
-    houses = models.ForeignKey('House',on_delete=models.CASCADE)
-    owner = models.ManyToManyField(Owner,related_name='properties')
+
 
 class House(models.Model):
     VACANCY_CHOICES =[
@@ -31,6 +30,11 @@ class House(models.Model):
     electric_bill =models.ForeignKey('ElectricBill',on_delete=models.CASCADE)
     water_bill = models.ForeignKey('WaterBill',on_delete=models.CASCADE)
     category = models.CharField(max_length=20,choices=CATEGORY)
+    property =models.ForeignKey(Property,related_name="houses", on_delete=models.CASCADE)
+    owner = models.ManyToManyField(Owner,related_name="houses")
+    
+    def __str__(self):
+        return f"{self.house_number}"
 
 class Bill(models.Model):
     account_no = models.IntegerField()
