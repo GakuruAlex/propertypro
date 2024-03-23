@@ -16,7 +16,7 @@ align-items: center;
 li{
     list-style-type:none;
 }
-a{
+.home a{
     text-decoration: none;
     color: var(--text-icon-color);
     text-decoration-color: var(--text-icon-color);
@@ -29,7 +29,7 @@ a{
     -o-border-radius:4px ;
     font-size: larger;
 }
-a:hover{
+.home a:hover{
     background-color: var(--accent-color);
 }
 .logo{

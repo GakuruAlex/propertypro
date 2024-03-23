@@ -31,10 +31,38 @@
 }
 #add_property{
     margin-top: 2px;
-    padding: 2px;
+    padding: 4px;
     border-radius: 2px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
     -o-border-radius: 2px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.properties{
+    background-color: var(--text-icon-color);
+    width: 20%;
+    height: 40%;
+    margin-top: 30px;
+    margin-left: 10px;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+.property-item{
+    font-family: cursive;
+    font-size: medium;
+    color: var(--primary-text);
+    margin-left: 10px;
+}
+
+#more{
+    color:  var(--primary-text);
 }
