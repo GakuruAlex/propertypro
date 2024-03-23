@@ -64,3 +64,12 @@ def create_property(request):
     else:
         form = PropertyForm()
         return render(request,"property/create_property.html",{"form":form})
+    
+    
+#House model view logic
+def view_houses(request):
+    houses = House.objects.all()[:8]
+    
+    return render(request,"property/view_houses.html",{"houses":houses})
+
+    
