@@ -1,0 +1,41 @@
+{% extends "property/index.html" %}
+{% load static %}
+
+
+{% block title %}
+Create Property
+{% endblock title %}
+    
+{% block styles %}
+<link rel="stylesheet" href="{% static 'property/create_property.css' %}">
+{% endblock styles %}
+
+
+
+{% block body %}
+{% if messages %}
+  {% for message in messages  %}
+    <div>
+        {message}
+    </div>
+  {% endfor %}
+{% endif %}
+
+<h3 id="create_property"> Create New Property</h3>
+<form action="{% url 'property:create_property' %}" method="post" class="create_property">
+  {% csrf_token %}
+
+  <label for="name" >Name</label>
+  <input type="text" name="name" placeholder="Name of Property">
+  <label for="location">Location</label>
+  <input type="text" name="location" placeholder="Location of Property">
+  <label for="no_houses">Number of Houses</label>
+  <input type="number" name="no_houses" placeholder="Number of Houses">
+  
+<input type="submit" value="Create Property">
+</form>
+
+
+{% endblock body %}
+
+    
