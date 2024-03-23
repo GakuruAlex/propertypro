@@ -13,24 +13,32 @@ Create Property
 
 
 {% block body %}
-{% if messages %}
-  {% for message in messages  %}
-    <div>
-        {message}
-    </div>
-  {% endfor %}
-{% endif %}
+
+
 
 <h3 id="create_property"> Create New Property</h3>
+
+            <span class="text-danger">{{ form.errors }}</span>
+        
 <form action="{% url 'property:create_property' %}" method="post" class="create_property">
   {% csrf_token %}
 
-  <label for="name" >Name</label>
-  <input type="text" name="name" placeholder="Name of Property">
-  <label for="location">Location</label>
-  <input type="text" name="location" placeholder="Location of Property">
-  <label for="no_houses">Number of Houses</label>
-  <input type="number" name="no_houses" placeholder="Number of Houses">
+    <div class="input">
+
+        <label for="{{form.name.id_for_label}}" class="label">  {{form.name.label}} </label>
+         {{form.name}}
+         
+     
+    </div>
+    <div class="input">
+        <label for="{{form.location.id_for_label}}" class="label">{{form.location.label}}</label>
+        {{form.location}}
+    </div>
+    <div class="input">
+        <label for="{{form.no_houses.id_for_label}}" class="label">{{form.no_houses.label}}</label>
+        {{form.no_houses}}
+     </div>
+ 
   
 <input type="submit" value="Create Property">
 </form>
