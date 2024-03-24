@@ -28,6 +28,14 @@
     background-color: var(--text-icon-color);
     text-decoration: solid;
     color: var(--primary-text);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.add_property a:hover{
+    background-color: var(--accent-color);
 }
 #add_property{
     margin-top: 2px;

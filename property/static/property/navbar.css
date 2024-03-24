@@ -16,7 +16,7 @@ align-items: center;
 li{
     list-style-type:none;
 }
-.home a{
+.navbar a{
     text-decoration: none;
     color: var(--text-icon-color);
     text-decoration-color: var(--text-icon-color);
@@ -29,8 +29,9 @@ li{
     -o-border-radius:4px ;
     font-size: larger;
 }
-.home a:hover{
+.navbar a:hover{
     background-color: var(--accent-color);
+    color: var(--primary-text);
 }
 .logo{
    

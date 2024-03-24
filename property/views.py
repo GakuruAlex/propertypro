@@ -42,7 +42,10 @@ def property_detail(request,pk):
     except Property.DoesNotExist:
         messages.error(request,f"Property with id {pk} Not Found!")
         return render(request,'property/detail_not_found.html')
-    return render(request,'property/property_detail.html',{"property":property})
+    houses = House.objects.filter(property = property)
+
+    
+    return render(request,'property/property_detail.html',{"property":property, "houses":houses})
 
 @transaction.atomic
 def create_property(request):
