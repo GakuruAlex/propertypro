@@ -20,9 +20,9 @@
             <li>House Tenant: {{house.tenant}}</li>
             <li>Rent: KSh.{{house.rent}}</li>
             {% if house.status == 'Available' %}
-              <li id="available">Status: {{house.status}}</li>
+              <li id="available"><img src="{% static 'property/available.svg' %}" alt="available">  Status: {{house.status}}</li>
             {% else %}
-            <li id="occupied">Status: {{house.status}}</li>
+            <li id="occupied"><img src="{% static 'property/occupied1.svg' %}" alt="occupied"> Status: {{house.status}}</li>
             {% endif %}
             <li>Electric Bill: {{house.electric_bill}}</li>
             <li>Water Bill: {{house.water_bill}}</li>
