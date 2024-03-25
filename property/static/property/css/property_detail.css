@@ -1,0 +1,77 @@
+.container{
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: row;
+    height: 60%;
+    width: 100%;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.container ul{
+    height: 100%;
+}
+.houses li{
+    color: var(--text-icon-color);
+    margin: 2px;
+}
+
+.image{
+    height: 50%;
+    width: 100%;
+}
+.houses{
+    width: 20%;
+    height: 80%;
+    border: 2px solid var(--text-icon-color);
+    margin:8px;
+    padding: 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.houses ul{
+    margin: 0;
+    padding: 0;
+}
+
+.houses img{
+    height: 100%;
+    width: 100%;
+}
+.property-details{
+    color: var(--text-icon-color);
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.details{
+    height: 45%;
+margin: 5px;
+padding: 5px;
+}
+
+.details a{
+    text-decoration: none;
+    float: right;
+    background-color: var(--text-icon-color);
+    margin-top: 4px;
+    border-radius: 4px;
+    padding: 5px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+.details a:hover{
+    background-color: var(--accent-color);
+}
