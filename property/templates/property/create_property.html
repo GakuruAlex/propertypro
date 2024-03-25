@@ -7,7 +7,7 @@ Create Property
 {% endblock title %}
     
 {% block styles %}
-<link rel="stylesheet" href="{% static 'property/create_property.css' %}">
+<link rel="stylesheet" href="{% static 'property/css/create_property.css' %}">
 {% endblock styles %}
 
 
@@ -34,12 +34,6 @@ Create Property
         <label for="{{form.location.id_for_label}}" class="label">{{form.location.label}}</label>
         {{form.location}}
     </div>
-    <div class="input">
-        <label for="{{form.no_houses.id_for_label}}" class="label">{{form.no_houses.label}}</label>
-        {{form.no_houses}}
-     </div>
- 
-  
 <input type="submit" value="Create Property">
 </form>
 
