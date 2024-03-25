@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.shortcuts import get_object_or_404
 from .models import Property,House,WaterBill,ElectricBill
 from django.contrib import messages
-from django.db.models import F,Sum
+from django.db.models import F,Sum,Count
 from .forms import PropertyForm
 from django.db import IntegrityError,transaction
 # Create your views here.
@@ -20,8 +20,8 @@ def properties_list(request):
         request, template, objects: The given properties are rendered in the Home template
     """
     try: #Try to get the property objects
-        properties = Property.objects.all()[:5]
         properties_count =Property.objects.count()
+        properties=Property.objects.annotate(house_count=Count("houses"))
         messages.success(request,f"Got {properties_count} properties successfully")
     except Exception as e: #Send error to template if get fails
         messages.error(request,f"Error: {e}")
@@ -43,7 +43,7 @@ def property_detail(request,pk):
         messages.error(request,f"Property with id {pk} Not Found!")
         return render(request,'property/detail_not_found.html')
     houses = House.objects.filter(property = property)
-
+   
     
     return render(request,'property/property_detail.html',{"property":property, "houses":houses})
 
