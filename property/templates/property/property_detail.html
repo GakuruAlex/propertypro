@@ -32,7 +32,8 @@
          <li> House number: {{house.house_number}}</li>
          <li>Tenant: {{house.tenant}}</li>
          <li>Rent: {{house.rent}}</li>
-         <a href="{%  url 'property:house_detail' house.id %}">Details</a>
+         <li>Category: {{house.category}}</li>
+         <a href="{%  url 'property:house_detail' property.id house.id %}">Details</a>
          </ul>
       {% endfor %}
     </div>

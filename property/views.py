@@ -75,4 +75,6 @@ def view_houses(request):
     
     return render(request,"property/view_houses.html",{"houses":houses})
 
-    
+def house_detail(request,pk,id):
+    house =get_object_or_404(House, pk=id)
+    return render(request,"property/house_detail.html",{"house":house})

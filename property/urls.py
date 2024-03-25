@@ -11,5 +11,5 @@ urlpatterns = [
    path("properties/create-property/",views.create_property,name="create_property"),
    
    #Houses urls
-  
+   path("properties/<int:pk>/houses/<int:id>/",views.house_detail,name="house_detail")
 ]
