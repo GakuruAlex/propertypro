@@ -13,3 +13,7 @@ class PropertyForm(forms.ModelForm):
         self.fields['name'].widget.attrs.update({'placeholder': 'Enter name of Property'})
         self.fields['location'].widget.attrs.update({'placeholder': 'Enter location of Property'})
        
+class HouseForm(forms.ModelForm):
+        class Meta:
+            model = House
+            fields = "__all__"
