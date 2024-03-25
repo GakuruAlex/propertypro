@@ -24,5 +24,20 @@
        {{property.name}} 
        {{property.no_houses}}
     </div>
+    <div class="container">
+      <div class="houses">
+      {% for house in houses  %}
+        <ul>
+         <li><img src="{{ MEDIA_URL}}{{house.image}}" alt="House"></li>
+         <li> House number: {{house.house_number}}</li>
+         <li>Tenant: {{house.tenant}}</li>
+         <li>Rent: {{house.rent}}</li>
+         <li>Category: {{house.category}}</li>
+         <a href="{%  url 'property:house_detail' property.id house.id %}">Details</a>
+         </ul>
+      {% endfor %}
+    </div>
+    </div>
+    
 {% endblock body %}
     

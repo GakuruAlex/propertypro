@@ -1,0 +1,33 @@
+{% extends "property/index.html" %}
+{% load static %}
+
+{% block title %}
+{{house.house_number}}
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'property/house_detail.css' %}">
+{% endblock styles %}
+
+
+{% block body %}
+
+<div class="house">
+        <ul>
+            <li><img src="{{MEDIA_URL}}{{house.image}}" alt="House image"></li>
+            <div class="details">
+            <li>House Number: {{house.house_number}}</li>
+            <li>House Tenant: {{house.tenant}}</li>
+            <li>Rent: KSh.{{house.rent}}</li>
+            {% if house.status == 'Available' %}
+              <li id="available">Status: {{house.status}}</li>
+            {% else %}
+            <li id="occupied">Status: {{house.status}}</li>
+            {% endif %}
+            <li>Electric Bill: {{house.electric_bill}}</li>
+            <li>Water Bill: {{house.water_bill}}</li>
+            <a href="#" id="edit"> <img src="{% static 'property/edit.svg' %}" alt="edit"> Edit</a>
+            </div>
+        </ul>
+</div>
+{% endblock body %}

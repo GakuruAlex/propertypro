@@ -42,7 +42,10 @@ def property_detail(request,pk):
     except Property.DoesNotExist:
         messages.error(request,f"Property with id {pk} Not Found!")
         return render(request,'property/detail_not_found.html')
-    return render(request,'property/property_detail.html',{"property":property})
+    houses = House.objects.filter(property = property)
+
+    
+    return render(request,'property/property_detail.html',{"property":property, "houses":houses})
 
 @transaction.atomic
 def create_property(request):
@@ -64,3 +67,14 @@ def create_property(request):
     else:
         form = PropertyForm()
         return render(request,"property/create_property.html",{"form":form})
+    
+    
+#House model view logic
+def view_houses(request):
+    houses = House.objects.all()[:8]
+    
+    return render(request,"property/view_houses.html",{"houses":houses})
+
+def house_detail(request,pk,id):
+    house =get_object_or_404(House, pk=id)
+    return render(request,"property/house_detail.html",{"house":house})

@@ -7,6 +7,9 @@ class Property(models.Model):
     name = models.CharField(max_length=25)
     location = models.CharField(max_length=25)
     no_houses = models.IntegerField()
+    
+    def __str__(self):
+        return f"{self.name}"
 
 
 class House(models.Model):
@@ -40,9 +43,14 @@ class Bill(models.Model):
     account_no = models.IntegerField()
     bill_amount = models.DecimalField(max_digits=9, decimal_places=2)
     bill_month = models.DateField()
+    
+    def __str__(self):
+        return f"Account {self.account_no } Amount: {self.bill_amount}"
 
 class WaterBill(Bill):
-    pass
+    def __str__(self):
+        return super().__str__()
 class ElectricBill(Bill):
-    pass
+    def __str__(self):
+        return super().__str__()
 

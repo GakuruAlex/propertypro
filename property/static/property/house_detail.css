@@ -1,0 +1,78 @@
+.house li{
+ text-decoration: none;  
+color: var(--text-icon-color);
+ padding: 3px;
+}
+.house{
+    background-color: var(--text-icon-color);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 65%;
+    width: 25%;
+    margin-top: 5px;
+    margin-left: 35%;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.house img{
+    width: 100%;
+    height: 50%;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -ms-border-radius: 5px 5px 0 0;
+    -o-border-radius: 5px 5px 0 0;
+}
+
+ .house ul{
+    margin: 0;
+    padding: 0;
+}
+
+.details{
+    border: 2px solid var(--text-icon-color);
+    background-color: var(--dark-primary-color);
+    height: 50%;
+    margin-top: 1px;
+    padding: 2px;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    position: relative;
+}
+
+
+.details a#edit{
+    position: absolute;
+    text-decoration: none;
+    color: var(--primary-text);
+    background-color: var(--text-icon-color);
+    bottom: 10;
+    right: 15;
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    font-size: larger;
+    margin-left: 4px;
+
+
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-left: 2px;
+    margin-left: 2px;
+}
+a:hover{
+    background-color: var(--primary-color);
+    color: var(--text-icon-color);
+}
