@@ -6,7 +6,7 @@
 {% endblock title %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'property/house_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'property/css/house_detail.css' %}">
 {% endblock styles %}
 
 
@@ -20,13 +20,13 @@
             <li>House Tenant: {{house.tenant}}</li>
             <li>Rent: KSh.{{house.rent}}</li>
             {% if house.status == 'Available' %}
-              <li id="available">Status: {{house.status}}</li>
+              <li id="available"><img src="{% static 'property/svg/available.svg' %}" alt="available">  Status: {{house.status}}</li>
             {% else %}
-            <li id="occupied">Status: {{house.status}}</li>
+            <li id="occupied"><img src="{% static 'property/svg/occupied1.svg' %}" alt="occupied"> Status: {{house.status}}</li>
             {% endif %}
             <li>Electric Bill: {{house.electric_bill}}</li>
             <li>Water Bill: {{house.water_bill}}</li>
-            <a href="#" id="edit"> <img src="{% static 'property/edit.svg' %}" alt="edit"> Edit</a>
+            <a href="#" id="edit"> <img src="{% static 'property/svg/edit.svg' %}" alt="edit"> Edit</a>
             </div>
         </ul>
 </div>

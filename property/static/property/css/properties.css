@@ -1,3 +1,4 @@
+
 .success{
     display: flex;
     flex-direction: row;
@@ -34,9 +35,10 @@
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
-.add_property a:hover{
+.add_property:hover{
     background-color: var(--accent-color);
 }
+
 #add_property{
     margin-top: 2px;
     padding: 4px;
@@ -54,9 +56,9 @@
 }
 .properties{
     background-color: var(--text-icon-color);
-    width: 20%;
-    height: 40%;
-    margin-top: 30px;
+    width: 30%;
+    height: 60%;
+    margin-top: 20px;
     margin-left: 10px;
     border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -72,5 +74,20 @@
 }
 
 #more{
-    color:  var(--primary-text);
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   color:  var(--primary-text);
+   text-decoration: none;
+   margin: 15px;
+   padding: 5px;
+   float: right;
+   border-radius:5px ;
+   -webkit-border-radius:5px ;
+   -moz-border-radius:5px ;
+   -ms-border-radius:5px ;
+   -o-border-radius:5px ;
+}
+.properties a:hover{
+    background-color: var(--accent-color);
 }

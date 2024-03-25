@@ -9,7 +9,7 @@
 
     
 {% block styles %}
-<link rel="stylesheet" href="{% static 'property/property_detail.css' %}">
+<link rel="stylesheet" href="{% static 'property/css/property_detail.css' %}">
 {% endblock styles %}
 
 
@@ -21,22 +21,31 @@
   
 {% endfor %}
     <div class="property-details">
-       {{property.name}} 
-       {{property.no_houses}}
+      Property: {{property.name}} 
+      Number of Houses: {{property.house_count}}
     </div>
     <div class="container">
-      <div class="houses">
+      
       {% for house in houses  %}
+      <div class="houses">
         <ul>
-         <li><img src="{{ MEDIA_URL}}{{house.image}}" alt="House"></li>
+         <div class="image">
+             <li><img src="{{ MEDIA_URL}}{{house.image}}" alt="House"></li>
+         </div>
+        <div class="details">
          <li> House number: {{house.house_number}}</li>
          <li>Tenant: {{house.tenant}}</li>
          <li>Rent: {{house.rent}}</li>
          <li>Category: {{house.category}}</li>
-         <a href="{%  url 'property:house_detail' property.id house.id %}">Details</a>
+         <a href="{%  url 'property:house_detail' property.id house.id %}" id="details">
+            Details</a>
+        </div>
+         
+         
          </ul>
+          </div>
       {% endfor %}
-    </div>
+   
     </div>
     
 {% endblock body %}

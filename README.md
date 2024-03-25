@@ -6,6 +6,7 @@ This project aims to be a user-friendly platform for landlords to manage their p
 
 * Manage properties
 * Manage Tenants
+* Manage Houses
 
 ## Getting Started
 

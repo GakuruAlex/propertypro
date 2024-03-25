@@ -21,7 +21,7 @@
   
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'property/properties.css' %}">
+    <link rel="stylesheet" href="{% static 'property/css/properties.css' %}">
 {% endblock styles %}
 
 
@@ -39,7 +39,7 @@
   {% endif %}
 {% endfor %}
  <a href="{% url 'property:create_property' %}" class="add_property">
-   <img src="{% static 'property/add_home.svg'%}" alt="Add Property" id="add_property">
+   <img src="{% static 'property/svg/add_home.svg'%}" alt="Add Property" id="add_property">
    Add Property
 </a>
 <div class="container">
@@ -48,8 +48,11 @@
   <div class="properties">
 <h3 class="property-item">Name: {{property.name}}</h3>
 <h3 class="property-item">Location: {{property.location}}</h3>
-<h3 class="property-item">Houses: {{property.no_houses}}</h3>
-<a href="{% url 'property:property_detail' property.id %}" id="more">View More</a>
+<h3 class="property-item">Houses: {{property.house_count}}</h3>
+<a href="{% url 'property:property_detail' property.id %}" id="more">
+  View More
+  <img src="{% static 'property/svg/more.svg' %}" alt="more">
+</a>
 </div>
 {% endfor %}
 

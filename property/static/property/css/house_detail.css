@@ -76,3 +76,28 @@ a:hover{
     background-color: var(--primary-color);
     color: var(--text-icon-color);
 }
+
+#occupied{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: var(--success-color);
+    align-items: center;
+    text-decoration:double;
+}
+#occupied img{
+    height: 30px;
+    width: 30px;
+}
+
+#available{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: var(--error-color);
+    align-items: center;
+}
+#available img{
+    height: 30px;
+    width: 30px;
+}
