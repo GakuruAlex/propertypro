@@ -38,14 +38,21 @@
          <li>Rent: {{house.rent}}</li>
          <li>Category: {{house.category}}</li>
          <a href="{%  url 'property:house_detail' property.id house.id %}" id="details">
-            Details</a>
+            Details
+            <img src="{% static 'property/svg/details.svg' %}" alt="Details">
+         </a>
         </div>
          
          
          </ul>
           </div>
       {% endfor %}
-   
+   <div class="bottom-element">
+<a href="#" id="next">
+   Next
+    <img src="{% static 'property/svg/arrow_forward.svg' %}" alt="forward">
+</a>
+   </div>
     </div>
     
 {% endblock body %}

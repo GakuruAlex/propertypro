@@ -13,6 +13,32 @@
 .container ul{
     height: 100%;
 }
+#next{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    color: var(--primary-text);
+    text-decoration: none;
+    background-color: var(--text-icon-color);
+    height: 20px;
+    width: 60px;
+    float: right;
+    margin-bottom: auto;
+    padding: 5px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+#next:hover{
+    background-color: var(--accent-color);
+}
+#next img{
+    height: 20px;
+    width: 20px;
+}
 .houses li{
     color: var(--text-icon-color);
     margin: 2px;
@@ -23,8 +49,8 @@
     width: 100%;
 }
 .houses{
-    width: 20%;
-    height: 80%;
+    width: 15%;
+    height: 85%;
     border: 2px solid var(--text-icon-color);
     margin:8px;
     padding: 0;
@@ -61,6 +87,10 @@ padding: 5px;
 }
 
 .details a{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
     text-decoration: none;
     float: right;
     background-color: var(--text-icon-color);
@@ -74,4 +104,14 @@ padding: 5px;
 }
 .details a:hover{
     background-color: var(--accent-color);
+}
+.bottom-element{
+    margin-left: auto;
+    align-self: flex-end;
+    margin-right:10px ;
+    margin-bottom: 10px;
+}
+.details img{
+    height: 20px;
+    width: 20px;
 }

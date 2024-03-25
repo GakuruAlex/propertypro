@@ -11,7 +11,7 @@
 
 
 {% block body %}
-
+<div class="container">
 <div class="house">
         <ul>
             <li><img src="{{MEDIA_URL}}{{house.image}}" alt="House image"></li>
@@ -26,8 +26,27 @@
             {% endif %}
             <li>Electric Bill: {{house.electric_bill}}</li>
             <li>Water Bill: {{house.water_bill}}</li>
-            <a href="#" id="edit"> <img src="{% static 'property/svg/edit.svg' %}" alt="edit"> Edit</a>
+            <a href="#" id="edit"> Edit <img src="{% static 'property/svg/edit.svg' %}" alt="edit"> </a>
             </div>
         </ul>
+</div>
+<div class="payment">
+<h3>{{house.house_number}}</h3>
+<ul>
+  <li>Rent Due for month of:</li>
+  <li>Rent Paid:</li>
+  <li>Rent Balance:</li>
+</ul>
+<ul>
+  <li>Electricity Bill for month :</li>
+  <li>Balance carried forward</li>
+  <li>Amount Due</li>
+</ul>
+<ul>
+  <li>Water Bill for month</li>
+  <li>B/F</li>
+  <li>Amount Due</li>
+</ul>
+</div>
 </div>
 {% endblock body %}
