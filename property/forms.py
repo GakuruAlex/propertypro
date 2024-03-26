@@ -16,4 +16,4 @@ class PropertyForm(forms.ModelForm):
 class HouseForm(forms.ModelForm):
         class Meta:
             model = House
-            fields = "__all__"
+            fields = '__all__'
