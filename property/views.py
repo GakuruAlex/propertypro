@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.db.models import F,Sum,Count
 from .forms import PropertyForm,HouseForm
 from django.db import IntegrityError,transaction
+from .functions import MyAnnotation
 # Create your views here.
 def home(request):
     return HttpResponse(f"Simplify Manage")
@@ -22,7 +23,9 @@ def properties_list(request):
     """
     try: #Try to get the property objects
         properties_count =Property.objects.count()
-        properties=Property.objects.annotate(house_count=Count("houses"))
+        custom_object = MyAnnotation(Property,"house_count","houses")
+        properties=custom_object.make_annotation()
+    
         messages.success(request,f"Got {properties_count} properties successfully")
     except Exception as e: #Send error to template if get fails
         messages.error(request,f"Error: {e}")
@@ -42,9 +45,11 @@ def property_detail(request,pk):
         request GET: Fetch object
         pk (int): The primary key from the template is the id of the object to fetch
     """
+    annotate_object = MyAnnotation(Property,"house_count","houses")
+    properties=annotate_object.make_annotation()
     
     try:
-        property = Property.objects.get(pk=pk)
+        property = properties.get(pk=pk)
     except Property.DoesNotExist:
         messages.error(request,f"Property with id {pk} Not Found!")
         return render(request,'property/detail_not_found.html')
