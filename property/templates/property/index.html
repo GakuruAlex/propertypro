@@ -18,7 +18,18 @@
           <link rel="stylesheet" href="{% static 'property/css/index.css' %}">
           
           {% block jquery %}
-            
+               <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+<script text="javascript">
+    setTimeout(fade_out, 1000);
+    function fade_out() {
+        $(".success").fadeOut().empty();
+        $(".errors").fadeOut().empty();
+    }
+</script>
           {% endblock jquery %}
             
         {% block styles %}
@@ -29,7 +40,12 @@
     <body>
        
        {% block body %}
+       
+       {% block messages %}
         
+       {% endblock messages %}
+        
+         
        {% endblock body %}
         
     </body>
