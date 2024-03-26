@@ -20,18 +20,7 @@
 
 
 {% block body %}
-{% for message in messages  %}
-   {% if message.tags == 'success' %}
-     <div class="success">
-      <h4>{{message}}</h4>
-     </div>
-     {% else %}
-      <div class="error">
-      <h4>{{message}}</h4>
-   </div>
-   {% endif %}
-  
-{% endfor %}
+
     <div class="property-details">
      <h3>Property: {{property.name}} </h3>
      <h3>Number of Houses: {{property.house_count}}</h3>

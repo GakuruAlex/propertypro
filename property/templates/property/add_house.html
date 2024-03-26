@@ -11,52 +11,60 @@
 <link rel="stylesheet" href="{% static 'property/css/add_house.css' %}">
 {% endblock styles %}
 
-{% for message in messages   %}
-  <div class="error">
-<p>{{message}}</p>
-  </div>
-{% endfor %}
+
+{% block jquery %}
+                  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+<script text="javascript">
+    setTimeout(fade_out, 3000);
+    function fade_out() {
+        $(".success").fadeOut().empty();
+        $(".error").fadeOut().empty();
+    }
+</script>
+{% endblock jquery %}
+    
 
 
 {% block body %}
-    <form action="" method="post" enctype="multipart/form-data" class="add_house">
-        {% csrf_token %}
-        <div class="input">
-            <label for="tenant">{{form.tenant.label}}</label>
-            {{form.tenant}}
-        </div>
-        <div class="input">
-            <label for="rent">{{form.rent.label}}</label>
-            {{form.rent}}
-        </div>
-        <div class="input">
-            <label for="image">{{form.image.label}}</label>
-            {{form.image}}
-             {% for error in form.image.errors %}{{ error }}{% endfor %}
-        </div>
-        <div class="input">
-            <label for="house number">{{form.house_number.label}}</label>
-            {{form.house_number}}
-        </div>
-        
-        <div class="input">
-            <label for="electric bill">{{form.electric_bill.label}}</label>
-            {{form.electric_bill}}
-        </div>
-        <div class="input">
-            <label for="water_bill">{{form.water_bill.label}}</label>
-            {{form.water_bill}}
-        </div>
-        <div class="input">
-            <label for="category">{{form.category.label}}</label>
-            {{form.category}}
-        </div>
-        <div class="input">
-            <label for="owner">{{form.owner.label}}</label>
-            {{form.owner}}
-        </div>
+<h3 id="house">Add House</h3>
+   {% for message in messages %}
+  {% if message.tags == 'success' %}
+    <div class="success">
+      {{ message }}
+    </div>
+  {% elif message.tags == 'error' %}
+    <div class="error">
+      {{ message }}
+    </div>
+  {% endif %}
+{% endfor %}
 
-<input type="submit" value="Add House">
+    <form action="" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+ <table>
+           
+            <tr>
+                <td><label for="tenant">{{form.tenant.label}}</label> {{form.tenant}}</td>
+                <td><label for="rent">{{form.rent.label}}</label> {{form.rent}}</td>
+                <td><label for="image">{{form.image.label}}</label> {{form.image}}</td>
+            </tr>
+            
+            <tr>
+                <td><label for="house number">{{form.house_number.label}}</label> {{form.house_number}}</td>
+                <td><label for="electric bill">{{form.electric_bill.label}}</label> {{form.electric_bill}}</td>
+                <td><label for="water_bill">{{form.water_bill.label}}</label> {{form.water_bill}}</td>
+            </tr>
+            
+            <tr>
+                <td><label for="category">{{form.category.label}}</label> {{form.category}}</td>
+                <td><label for="owner">{{form.owner.label}}</label> {{form.owner}}</td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit House" id="submit-house">
     </form>
 {% endblock body %}
     
