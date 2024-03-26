@@ -1,0 +1,24 @@
+{% extends "property/index.html" %}
+{% load static %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'property/css/detail_not_found.css' %}">
+{% endblock styles %}
+
+
+{% block body %}
+
+
+
+{% for message in messages  %}
+  <div class="error">
+    {{message}}
+    
+</div>
+{% endfor %}
+
+
+
+
+{% endblock body %}

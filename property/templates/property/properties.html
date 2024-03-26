@@ -15,13 +15,14 @@
     setTimeout(fade_out, 3000);
     function fade_out() {
         $(".success").fadeOut().empty();
+        $(".error").fadeOut().empty()
     }
 </script>
 {% endblock jquery %}
   
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'property/properties.css' %}">
+    <link rel="stylesheet" href="{% static 'property/css/properties.css' %}">
 {% endblock styles %}
 
 
@@ -38,16 +39,25 @@
     </div>
   {% endif %}
 {% endfor %}
+ <a href="{% url 'property:create_property' %}" class="add_property">
+   <img src="{% static 'property/svg/add_home.svg'%}" alt="Add Property" id="add_property">
+   Add Property
+</a>
+<div class="container">
+ 
+{% for property in properties  %}
+  <div class="properties">
+<h3 class="property-item">Name: {{property.name}}</h3>
+<h3 class="property-item">Location: {{property.location}}</h3>
+<h3 class="property-item">Houses: {{property.attribute_variable}}</h3>
+<a href="{% url 'property:property_detail' property.id %}" id="more">
+  View More
+  <img src="{% static 'property/svg/more.svg' %}" alt="more">
+</a>
+</div>
+{% endfor %}
 
-    {% if properties %}
-    {% for property in properties  %}
-      <div class="properties">
-        <h3>{{property.name}}</h3>
-        <h3>{{property.no_units}}</h3>
-        <h3>{{property.owner}}</h3>
-      </div>
-    {% endfor %}
-      
-    {% endif %}
+</div>
+
 {% endblock body %}
     
