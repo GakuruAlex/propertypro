@@ -25,15 +25,15 @@ class House(models.Model):
         ("TWO BEDROOM","two bedroom"),
     ]
 
-    tenant = models.OneToOneField(Tenant,on_delete=models.CASCADE,null=True)
+    tenant = models.OneToOneField(Tenant,on_delete=models.CASCADE,null=True,blank=True)
     rent = models.DecimalField(max_digits=9, decimal_places=3)
     image = models.ImageField(upload_to='media/',null=True)
     house_number = models.CharField(max_length= 10)
-    status = models.CharField(max_length=20,choices=VACANCY_CHOICES)
-    electric_bill =models.ForeignKey('ElectricBill',on_delete=models.CASCADE,null=True)
-    water_bill = models.ForeignKey('WaterBill',on_delete=models.CASCADE,null=True)
+    status = models.CharField(max_length=20,choices=VACANCY_CHOICES,null=True,blank=True)
+    electric_bill =models.ForeignKey('ElectricBill',on_delete=models.CASCADE,null=True,blank=True)
+    water_bill = models.ForeignKey('WaterBill',on_delete=models.CASCADE,null=True,blank=True)
     category = models.CharField(max_length=20,choices=CATEGORY)
-    property =models.ForeignKey(Property,related_name="houses", on_delete=models.CASCADE)
+    property =models.ForeignKey(Property,related_name="houses", on_delete=models.CASCADE,blank=True)
     owner = models.ManyToManyField(Owner,related_name="houses")
     
     def __str__(self):

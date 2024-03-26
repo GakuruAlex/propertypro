@@ -13,16 +13,32 @@
 {% endblock styles %}
 
 
+{% block jquery %}
+  
+{% endblock jquery %}
+   
+
+
 {% block body %}
 {% for message in messages  %}
-<div class="{{message.tags}}">
-{{message}}
-</div>
+   {% if message.tags == 'success' %}
+     <div class="success">
+      <h4>{{message}}</h4>
+     </div>
+     {% else %}
+      <div class="error">
+      <h4>{{message}}</h4>
+   </div>
+   {% endif %}
   
 {% endfor %}
     <div class="property-details">
-      Property: {{property.name}} 
-      Number of Houses: {{property.house_count}}
+     <h3>Property: {{property.name}} </h3>
+     <h3>Number of Houses: {{property.house_count}}</h3>
+      
+      <a href="{% url 'property:add_house' property.id %}">
+         <img src="{% static 'property/svg/add_house.svg' %}" alt="Add house">
+         ADD HOUSE</a>
     </div>
     <div class="container">
       
@@ -38,14 +54,21 @@
          <li>Rent: {{house.rent}}</li>
          <li>Category: {{house.category}}</li>
          <a href="{%  url 'property:house_detail' property.id house.id %}" id="details">
-            Details</a>
+            Details
+            <img src="{% static 'property/svg/details.svg' %}" alt="Details">
+         </a>
         </div>
          
          
          </ul>
           </div>
       {% endfor %}
-   
+   <div class="bottom-element">
+<a href="#" id="next">
+   Next
+    <img src="{% static 'property/svg/arrow_forward.svg' %}" alt="forward">
+</a>
+   </div>
     </div>
     
 {% endblock body %}
