@@ -23,7 +23,7 @@
 
     <div class="property-details">
      <h3>Property: {{property.name}} </h3>
-     <h3>Number of Houses: {{property.house_count}}</h3>
+     <h3>Number of Houses: {{property.attribute_variable}}</h3>
       
       <a href="{% url 'property:add_house' property.id %}">
          <img src="{% static 'property/svg/add_house.svg' %}" alt="Add house">

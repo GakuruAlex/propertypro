@@ -12,7 +12,7 @@
   crossorigin="anonymous"></script>
 
 <script text="javascript">
-    setTimeout(fade_out, 1000);
+    setTimeout(fade_out, 3000);
     function fade_out() {
         $(".success").fadeOut().empty();
         $(".error").fadeOut().empty()
@@ -49,7 +49,7 @@
   <div class="properties">
 <h3 class="property-item">Name: {{property.name}}</h3>
 <h3 class="property-item">Location: {{property.location}}</h3>
-<h3 class="property-item">Houses: {{property.house_count}}</h3>
+<h3 class="property-item">Houses: {{property.attribute_variable}}</h3>
 <a href="{% url 'property:property_detail' property.id %}" id="more">
   View More
   <img src="{% static 'property/svg/more.svg' %}" alt="more">
