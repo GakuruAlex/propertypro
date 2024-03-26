@@ -1,0 +1,53 @@
+.add_house{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px;
+    background-color:var(--text-icon-color);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin:15px;
+    width: 50%;
+    
+}
+.input{
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.input input[type="number"]{
+    padding: 3px;
+    width: 150px;
+}
+.input input[type="image"]{
+    margin-left: 10px;
+}
+.input input[type="text"]{
+    padding: 3px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    width: 150px;
+}
+
+.input select{
+    padding: 3px;
+    width: 150px;
+}
+.add_house input[type="submit"]{
+    padding: 10px;
+    height: 40px;
+    width: 150px;
+    align-self: center;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
