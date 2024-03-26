@@ -21,3 +21,18 @@ body{
     flex-direction: column; /* Stack items vertically on small screens */
   }
 }
+
+.success{
+    
+    margin: 10px;
+    height: 25px;
+    width: 400px;
+    background-color: var(--success-color);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    color: var(--primary-text);
+    font-family:cursive ;
+}

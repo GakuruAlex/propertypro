@@ -1,3 +1,4 @@
+from django.forms import ValidationError
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.urls import reverse
@@ -87,13 +88,25 @@ def house_detail(request,pk,id):
     house =get_object_or_404(House, pk=id)
     return render(request,"property/house_detail.html",{"house":house})
 
-@transaction.atomic
+
+@transaction.atomic #only save if no errors
 def add_house(request,pk):
-    
-    if request.method == "POST":
-        property = get_object_or_404(Property,pk=pk)
-        form = HouseForm(request.POST,request.FILES)
-        if form.is_valid():
+    """_summary_ A view to add a new house to a given property
+
+    Args:
+        request (_POST_): _Receive data from the form_
+        pk (_int_): _The id of property to add house to_
+
+    Returns:
+        _render_: _HTML template_
+    """
+    if request.method == "POST":#Check if request is POST
+        
+        property = get_object_or_404(Property,pk=pk)#Get property with given id
+        form = HouseForm(request.POST,request.FILES)#initialize form with submitted data and files
+        
+        if form.is_valid(): #Validation
+            #Get form data and set to respective fields
             tenant = form.cleaned_data['tenant']
             rent = form.cleaned_data['rent']
             image = form.cleaned_data['image']
@@ -103,23 +116,26 @@ def add_house(request,pk):
             water_bill =form.cleaned_data['water_bill']
             electric_bill = form.cleaned_data['electric_bill']
             
+            #Set status based on whether the house has a tenant
             if tenant == "None":
                 status = "AVAILABLE"
             else:
                 status ="OCCUPIED"
-            
+            #Crete house object with the given attributes
             house=House.objects.create(tenant=tenant,rent=rent,image=image,
                                  house_number=house_number,category=category,
                                  water_bill=water_bill,electric_bill=electric_bill,
                                  property=property,status=status
                                  )
-            house.owner.set(owner)
-            house.save()
+            house.owner.set(owner) #Set house owner
+            
+            house.save()#Save the house object
             messages.success(request,f"Successfully added {house.house_number} to {property.name}")
-            return HttpResponseRedirect(reverse('property:property_detail',args=[pk]))
-        else:
-            messages.errors(request,f"{form.errors.as_data()}")
+            return HttpResponseRedirect(reverse('property:property_detail',args=[pk]))#Redirect to property details
+            
+        else:#If Validation of submitted data fails
+            messages.error(request,f"{form.errors.as_text()}")
             return render(request,"property/add_house.html",{"form":form})
-    else:
+    else:# If request is not POST
         form =HouseForm()
         return render(request,"property/add_house.html",{"form":form})
