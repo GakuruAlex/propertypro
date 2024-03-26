@@ -1,0 +1,62 @@
+{% extends "property/index.html" %}
+
+{% load static %}
+
+{% block title %}
+    Add House
+{% endblock title %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'property/css/add_house.css' %}">
+{% endblock styles %}
+
+{% for message in messages   %}
+  <div class="error">
+<p>{{message}}</p>
+  </div>
+{% endfor %}
+
+
+{% block body %}
+    <form action="" method="post" enctype="multipart/form-data" class="add_house">
+        {% csrf_token %}
+        <div class="input">
+            <label for="tenant">{{form.tenant.label}}</label>
+            {{form.tenant}}
+        </div>
+        <div class="input">
+            <label for="rent">{{form.rent.label}}</label>
+            {{form.rent}}
+        </div>
+        <div class="input">
+            <label for="image">{{form.image.label}}</label>
+            {{form.image}}
+             {% for error in form.image.errors %}{{ error }}{% endfor %}
+        </div>
+        <div class="input">
+            <label for="house number">{{form.house_number.label}}</label>
+            {{form.house_number}}
+        </div>
+        
+        <div class="input">
+            <label for="electric bill">{{form.electric_bill.label}}</label>
+            {{form.electric_bill}}
+        </div>
+        <div class="input">
+            <label for="water_bill">{{form.water_bill.label}}</label>
+            {{form.water_bill}}
+        </div>
+        <div class="input">
+            <label for="category">{{form.category.label}}</label>
+            {{form.category}}
+        </div>
+        <div class="input">
+            <label for="owner">{{form.owner.label}}</label>
+            {{form.owner}}
+        </div>
+
+<input type="submit" value="Add House">
+    </form>
+{% endblock body %}
+    
