@@ -8,7 +8,8 @@ from django.contrib import messages
 from django.db.models import F,Sum,Count
 from .forms import PropertyForm,HouseForm
 from django.db import IntegrityError,transaction
-from .functions import MyAnnotation
+from .functions import MyPaginator
+from .annotation_functions import PropertyAnnotation
 # Create your views here.
 def home(request):
     return HttpResponse(f"Simplify Manage")
@@ -21,15 +22,16 @@ def properties_list(request):
     Returns:
         request, template, objects: The given properties are rendered in the Home template
     """
-    try: #Try to get the property objects
-        properties_count =Property.objects.count()
-        custom_object = MyAnnotation(Property,"house_count","houses")
-        properties=custom_object.make_annotation()
+     #Try to get the property objects
+    properties_count =Property.objects.count()
+    messages.success(request,f"Got {properties_count} properties successfully")
+  
+    custom_object = PropertyAnnotation()
+    properties_q=custom_object.houses_per_property()
+    property_page = MyPaginator()
+    properties =property_page.make_pages_with_pk(request,query_list=properties_q,items_per_page=6)
+        
     
-        messages.success(request,f"Got {properties_count} properties successfully")
-    except Exception as e: #Send error to template if get fails
-        messages.error(request,f"Error: {e}")
-        return render (request,'property/properties.html')
     
     return render(request,'property/properties.html',{'properties':properties})
 
@@ -45,17 +47,19 @@ def property_detail(request,pk):
         request GET: Fetch object
         pk (int): The primary key from the template is the id of the object to fetch
     """
-    annotate_object = MyAnnotation(Property,"house_count","houses")
-    properties=annotate_object.make_annotation()
+    annotate_object = PropertyAnnotation()
+    properties=annotate_object.houses_per_property()
     
     try:
         property = properties.get(pk=pk)
     except Property.DoesNotExist:
         messages.error(request,f"Property with id {pk} Not Found!")
         return render(request,'property/detail_not_found.html')
-    houses = House.objects.filter(property = property)
-   
     
+    houses_q = House.objects.filter(property = property)
+    page_obj =MyPaginator()
+    
+    houses = page_obj.make_pages_with_pk(request,query_list=list(houses_q),items_per_page=str(5))
     return render(request,'property/property_detail.html',{"property":property, "houses":houses})
 
 
@@ -77,13 +81,16 @@ def create_property(request):
             form.save()
             messages.success(request,f"Created Property Successfully!")
             return HttpResponseRedirect(reverse("property:properties"))
+        else:
+            messages.error(f"Error {form.errors.as_text()}")
+            return render(request,"property/create_property.html",{"form":form})
     else:
         form = PropertyForm()
         return render(request,"property/create_property.html",{"form":form})
     
 #House model view logic
 def view_houses(request):
-    houses = House.objects.all()[:8]
+    houses = House.objects.all()
     
     return render(request,"property/view_houses.html",{"houses":houses})
 
