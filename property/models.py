@@ -4,9 +4,11 @@ from accounts.models import Owner,Tenant
 # Create your models here.
 # property model
 class Property(models.Model):
-    name = models.CharField(max_length=25)
+    name = models.CharField(max_length=25,unique=True)
     location = models.CharField(max_length=25)
 
+    class Meta:
+        ordering =["name"]
     
     def __str__(self):
         return f"{self.name}"
@@ -36,6 +38,9 @@ class House(models.Model):
     property =models.ForeignKey(Property,related_name="houses", on_delete=models.CASCADE,blank=True)
     owner = models.ManyToManyField(Owner,related_name="houses")
     
+    class Meta:
+        ordering=["house_number"]
+        
     def __str__(self):
         return f"{self.house_number}"
 
