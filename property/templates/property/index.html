@@ -18,18 +18,7 @@
           <link rel="stylesheet" href="{% static 'property/css/index.css' %}">
           
           {% block jquery %}
-               <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
 
-<script text="javascript">
-    setTimeout(fade_out, 1000);
-    function fade_out() {
-        $(".success").fadeOut().empty();
-        $(".errors").fadeOut().empty();
-    }
-</script>
           {% endblock jquery %}
             
         {% block styles %}
@@ -41,23 +30,15 @@
        
        {% block body %}
        
-       {% block messages %}
-       {% for message in messages  %}
-   {% if message.tags == 'success' %}
-     <div class="success">
-      <h4>{{message}}</h4>
-     </div>
-     {% else %}
-      <div class="error">
-      <h4>{{message}}</h4>
-   </div>
-   {% endif %}
-  
-{% endfor %} 
-       {% endblock messages %}
+       
+       
+      
+        
         
          
        {% endblock body %}
+         {% block pages %}
         
+       {% endblock pages %}
     </body>
 </html>

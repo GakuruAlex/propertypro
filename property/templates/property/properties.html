@@ -49,13 +49,43 @@
   <div class="properties">
 <h3 class="property-item">Name: {{property.name}}</h3>
 <h3 class="property-item">Location: {{property.location}}</h3>
-<h3 class="property-item">Houses: {{property.attribute_variable}}</h3>
+<h3 class="property-item">Houses: {{property.houses_count}}</h3>
 <a href="{% url 'property:property_detail' property.id %}" id="more">
   View More
   <img src="{% static 'property/svg/more.svg' %}" alt="more">
 </a>
 </div>
 {% endfor %}
+
+
+
+ {% block page %}
+         <div class="pagination">
+    <span class="step-links">
+        {% if properties.has_previous %}
+        <div class="previous">
+          <a href="?page=1" id="first">&laquo; first</a>
+          <a href="?page={{ properties.previous_page_number }}" id="previous">previous</a>
+        </div>
+            
+        {% endif %}
+
+        <span class="current">
+            Page {{ properties.number }} of {{ properties.paginator.num_pages }}.
+        </span>
+
+        {% if properties.has_next %}
+            <div class="bottom-element">
+            <a href="?page={{properties.next_page_number}}" id="next">
+            Next
+             <img src="{% static 'property/svg/arrow_forward.svg' %}" alt="forward">
+            </a>
+             </div>
+            <a href="?page={{ properties.paginator.num_pages }}" id="last">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+      {% endblock page %}
 
 </div>
 

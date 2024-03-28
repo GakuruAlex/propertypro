@@ -23,7 +23,7 @@
 
     <div class="property-details">
      <h3>Property: {{property.name}} </h3>
-     <h3>Number of Houses: {{property.attribute_variable}}</h3>
+     <h3>Number of Houses: {{property.houses_count}}</h3>
       
       <a href="{% url 'property:add_house' property.id %}">
          <img src="{% static 'property/svg/add_house.svg' %}" alt="Add house">
@@ -52,13 +52,35 @@
          </ul>
           </div>
       {% endfor %}
-   <div class="bottom-element">
-<a href="#" id="next">
-   Next
-    <img src="{% static 'property/svg/arrow_forward.svg' %}" alt="forward">
-</a>
-   </div>
+
+      
+     
+         
+   
     </div>
-    
+     {% block page %}
+         <div class="pagination">
+    <span class="step-links">
+        {% if houses.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ houses.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ houses.number }} of {{ houses.paginator.num_pages }}.
+        </span>
+
+        {% if houses.has_next %}
+            <div class="bottom-element">
+            <a href="?page={{houses.next_page_number}}" id="next">
+            Next
+             <img src="{% static 'property/svg/arrow_forward.svg' %}" alt="forward">
+            </a>
+             </div>
+            <a href="?page={{ houses.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+      {% endblock page %}
 {% endblock body %}
     
